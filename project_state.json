@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "E-commerce website project. User wants to build a full e-commerce website.",
+  "architectural_notes": [
+    "E-commerce website with product listings, cart, checkout, and user auth"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-homepage-with-a-hero-banner-featured-product-categories-section-and-a-featured-products-grid-the-homepage-should-include-a-top-navigation-bar-with-the-store-logo-search-input-cart-icon-showing-item-count-and-a-login-logout-button-using-internet-identity",
+      "title": "Create a homepage with a hero banner, featured product categories section, and a featured products grid. The homepage should include a top navigation bar with the store logo, search input, cart icon showing item count, and a login/logout button using Internet Identity.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-product-listing-page-that-displays-all-products-in-a-responsive-grid-include-filters-for-category-and-a-sort-option-price-low-to-high-high-to-low-rating-support-toggling-between-grid-and-list-views-each-product-card-shows-image-name-price-rating-and-an-add-to-cart-button",
+      "title": "Create a product listing page that displays all products in a responsive grid. Include filters for category and a sort option (price low-to-high, high-to-low, rating). Support toggling between grid and list views. Each product card shows image, name, price, rating, and an 'Add to Cart' button.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-product-detail-page-accessible-by-product-id-display-the-full-product-image-name-description-price-stock-availability-rating-and-an-add-to-cart-button-with-quantity-selector",
+      "title": "Create a product detail page accessible by product ID. Display the full product image, name, description, price, stock availability, rating, and an 'Add to Cart' button with quantity selector.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-shopping-cart-page-that-lists-all-cart-items-with-their-image-name-unit-price-quantity-editable-and-line-total-display-the-order-subtotal-and-a-proceed-to-checkout-button-allow-removing-individual-items",
+      "title": "Create a shopping cart page that lists all cart items with their image, name, unit price, quantity (editable), and line total. Display the order subtotal and a 'Proceed to Checkout' button. Allow removing individual items.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-checkout-page-that-displays-an-order-summary-items-subtotal-total-and-a-shipping-details-form-name-address-city-postal-code-on-submission-call-the-backend-to-place-the-order-and-display-a-confirmation-message-with-the-order-id",
+      "title": "Create a checkout page that displays an order summary (items, subtotal, total) and a shipping details form (name, address, city, postal code). On submission, call the backend to place the order and display a confirmation message with the order ID.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-order-history-page-accessible-to-authenticated-users-listing-their-past-orders-with-order-id-date-total-status-and-a-breakdown-of-items-per-order",
+      "title": "Create an order history page accessible to authenticated users, listing their past orders with order ID, date, total, status, and a breakdown of items per order.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-design-theme-across-the-entire-application-use-a-clean-modern-e-commerce-aesthetic-with-a-warm-neutral-palette-off-whites-warm-grays-and-a-rich-amber-terracotta-accent-color-bold-sans-serif-typography-generous-whitespace-smooth-hover-transitions-on-cards-and-buttons-and-a-consistent-card-based-layout-style",
+      "title": "Apply a cohesive visual design theme across the entire application. Use a clean, modern e-commerce aesthetic with a warm neutral palette (off-whites, warm grays, and a rich amber/terracotta accent color), bold sans-serif typography, generous whitespace, smooth hover transitions on cards and buttons, and a consistent card-based layout style.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-generated-static-image-assets-from-frontend-public-assets-generated-use-the-hero-banner-image-on-the-homepage-hero-section-and-the-store-logo-in-the-navigation-bar",
+      "title": "Render generated static image assets from frontend/public/assets/generated. Use the hero banner image on the homepage hero section and the store logo in the navigation bar.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-admin-seller-product-management-page-that-allows-authenticated-admin-users-to-create-new-products-by-filling-out-a-form-with-fields-name-description-price-category-image-url-stock-quantity-and-rating-on-submission-call-the-backend-createproduct-or-equivalent-endpoint-and-display-a-success-confirmation",
+      "title": "Add an admin/seller product management page that allows authenticated admin users to create new products by filling out a form with fields: name, description, price, category, image URL, stock quantity, and rating. On submission, call the backend createProduct (or equivalent) endpoint and display a success confirmation.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-edit-and-delete-capability-to-the-product-management-page-so-admin-users-can-update-existing-product-details-or-remove-a-product-from-the-store-wire-these-actions-to-the-corresponding-backend-update-delete-endpoints",
+      "title": "Add an edit and delete capability to the product management page so admin users can update existing product details or remove a product from the store. Wire these actions to the corresponding backend update/delete endpoints.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-backend-exposes-full-crud-operations-for-products-create-read-update-delete-accessible-only-to-users-with-the-admin-role-and-that-the-frontend-admin-hooks-in-usequeries-ts-call-these-endpoints-correctly",
+      "title": "Ensure the backend exposes full CRUD operations for products (create, read, update, delete) accessible only to users with the admin role, and that the frontend admin hooks in useQueries.ts call these endpoints correctly.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Product listing page with grid/list view",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Product detail page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Shopping cart functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Checkout flow",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "User authentication (login/register)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Build a backend data model and API for products, including fields for id, name, description, price, category, imageUrl, stock quantity, and rating. Implement CRUD operations for products and support querying by category and search keyword.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Build a backend data model and API for a shopping cart. Support adding items, removing items, updating item quantities, and clearing the cart. Cart is scoped per authenticated user principal.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Build a backend data model and API for orders. When a user checks out, create an order record capturing the user principal, list of items (productId, name, price, quantity), total amount, and timestamp. Orders should be retrievable per user.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Admin/seller interface to create and add new products to the store",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "E-Commerce Website",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

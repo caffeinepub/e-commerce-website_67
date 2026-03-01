@@ -1,0 +1,77 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-01T15:47:18.889Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-12",
+        "summary": "Add an admin/seller product management page that allows authenticated admin users to create new products by filling out a form with fields: name, description, price, category, image URL, stock quantity, and rating. On submission, call the backend createProduct (or equivalent) endpoint and display a success confirmation.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AdminProductsPage.tsx",
+          "frontend/src/components/AdminProductForm.tsx",
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AdminProductsPage.tsx",
+          "frontend/src/components/AdminProductForm.tsx",
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Add an edit and delete capability to the product management page so admin users can update existing product details or remove a product from the store. Wire these actions to the corresponding backend update/delete endpoints.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AdminProductsPage.tsx",
+          "frontend/src/components/AdminProductForm.tsx",
+          "frontend/src/components/ConfirmDialog.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AdminProductsPage.tsx",
+          "frontend/src/components/AdminProductForm.tsx",
+          "frontend/src/components/ConfirmDialog.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Ensure the backend exposes full CRUD operations for products (create, read, update, delete) accessible only to users with the admin role, and that the frontend admin hooks in useQueries.ts call these endpoints correctly.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AdminProductForm.tsx",
+    "frontend/src/components/ConfirmDialog.tsx",
+    "frontend/src/components/Navbar.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/AdminProductsPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

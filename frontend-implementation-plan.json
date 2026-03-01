@@ -1,0 +1,90 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Admin product management interface",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "summary": "Create admin product management page with product creation form",
+      "acceptanceCriteria": [
+        "A 'Manage Products' or 'Add Product' link/button is visible in the navbar or a dedicated admin area for users with the admin role.",
+        "The product creation form includes fields for name, description, price, category, image URL, stock quantity, and rating.",
+        "All required fields are validated before submission.",
+        "On successful submission, the new product appears in the product listing page.",
+        "A success toast/message is shown after a product is created.",
+        "An error message is shown if the backend call fails."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminProductsPage.tsx",
+          "operation": "create",
+          "description": "Create an admin product management page that displays a list of all products with add, edit, and delete capabilities. Include a form for creating new products with fields for name, description, price, category, image URL (text input), stock quantity, and rating. Wire the form submission to the useAddProduct mutation hook from useQueries.ts. Display success toast on successful creation and error messages on failure. Guard the entire page with an admin role check using the authorization component's isCallerAdmin backend capability. Verify the authorization component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AdminProductForm.tsx",
+          "operation": "create",
+          "description": "Create a reusable product form component using react-hook-form with validation. Include fields for name (required text), description (required textarea), price (required positive number), category (required text or select), image URL (required text input for ExternalBlob URL), stock (required non-negative integer), and rating (required 0-5 range). Accept optional product prop for edit mode with pre-filled values. Emit onSubmit and onCancel events. Use shadcn/ui form components for consistent styling."
+        },
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "modify",
+          "description": "Add a 'Manage Products' link in the navbar that routes to /admin/products. Show this link only when the user is authenticated and has admin role by checking useGetCallerUserRole query. Position the link between the order history link and the LoginButton component. Verify the authorization component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register a new route for the admin products page at path /admin/products that lazy-loads AdminProductsPage component. Add the route definition after the existing /orders route in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Add edit and delete capabilities for products in admin interface",
+      "acceptanceCriteria": [
+        "Each product in the admin product list has an 'Edit' button that opens a pre-filled form with the product's current details.",
+        "Saving an edited product calls the backend update endpoint and reflects changes in the product listing.",
+        "Each product has a 'Delete' button with a confirmation prompt before deletion.",
+        "Deleting a product removes it from the product listing page.",
+        "Success and error feedback is shown for both edit and delete actions."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminProductsPage.tsx",
+          "operation": "modify",
+          "description": "Add edit and delete UI to the product list. For each product row, include an 'Edit' button that opens the AdminProductForm in edit mode with pre-filled product data, and a 'Delete' button that shows a confirmation dialog before calling useDeleteProduct mutation. Wire edit form submission to useUpdateProduct mutation. Display success toasts for both operations and error messages on failure. Automatically refresh the product list after any mutation by leveraging React Query cache invalidation."
+        },
+        {
+          "path": "frontend/src/components/AdminProductForm.tsx",
+          "operation": "modify",
+          "description": "Extend the form to support edit mode by accepting an optional product prop. When product is provided, pre-fill all form fields with the product's current values including converting the ExternalBlob image to its URL string via getDirectURL() for display in the image URL input field. Add logic to distinguish between create and update submission modes."
+        },
+        {
+          "path": "frontend/src/components/ConfirmDialog.tsx",
+          "operation": "create",
+          "description": "Create a reusable confirmation dialog component using shadcn/ui AlertDialog that accepts title, description, confirmText, cancelText, onConfirm, and onCancel props. Use this for the delete product confirmation prompt to prevent accidental deletions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Wire frontend mutation hooks for admin product CRUD operations",
+      "acceptanceCriteria": [
+        "Backend createProduct, updateProduct, and deleteProduct functions are guarded by admin role check and return appropriate errors for unauthorized callers.",
+        "Frontend React Query mutation hooks for createProduct, updateProduct, and deleteProduct are added to useQueries.ts.",
+        "Mutations invalidate the products query cache so the product listing refreshes automatically after any change."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add three new mutation hooks: useAddProduct, useUpdateProduct, and useDeleteProduct. Each hook should call the corresponding backend actor method (addProduct, updateProduct, deleteProduct) and invalidate the 'products' query key on success to trigger an automatic refetch of the product list. Handle errors by throwing them so they can be caught by the UI layer. These mutations enable the admin product management page to create, update, and delete products while keeping the UI in sync."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add a new query hook useGetCallerUserRole that calls the backend isCallerAdmin capability (or getCallerUserRole if available) to determine if the current user has admin privileges. Return the role information for UI conditional rendering. Enable this query only when the actor is available and the user is authenticated. Use query key ['callerUserRole', identity] to scope the cache per identity."
+        }
+      ]
+    }
+  ]
+}

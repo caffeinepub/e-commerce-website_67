@@ -1,0 +1,70 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-an-admin-seller-product-management-page-that-allows-authenticated-admin-users-to-create-new-products-by-filling-out-a-form-with-fields-name-description-price-category-image-url-stock-quantity-and-rating-on-submission-call-the-backend-createproduct-or-equivalent-endpoint-and-display-a-success-confirmation",
+      "featureTitle": "Add an admin/seller product management page that allows authenticated admin users to create new products by filling out a form with fields: name, description, price, category, image URL, stock quantity, and rating. On submission, call the backend createProduct (or equivalent) endpoint and display a success confirmation.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AdminProductForm.tsx",
+        "frontend/src/components/Navbar.tsx",
+        "frontend/src/pages/AdminProductsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-edit-and-delete-capability-to-the-product-management-page-so-admin-users-can-update-existing-product-details-or-remove-a-product-from-the-store-wire-these-actions-to-the-corresponding-backend-update-delete-endpoints",
+      "featureTitle": "Add an edit and delete capability to the product management page so admin users can update existing product details or remove a product from the store. Wire these actions to the corresponding backend update/delete endpoints.",
+      "files": [
+        "frontend/src/components/AdminProductForm.tsx",
+        "frontend/src/components/ConfirmDialog.tsx",
+        "frontend/src/pages/AdminProductsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-backend-exposes-full-crud-operations-for-products-create-read-update-delete-accessible-only-to-users-with-the-admin-role-and-that-the-frontend-admin-hooks-in-usequeries-ts-call-these-endpoints-correctly",
+      "featureTitle": "Ensure the backend exposes full CRUD operations for products (create, read, update, delete) accessible only to users with the admin role, and that the frontend admin hooks in useQueries.ts call these endpoints correctly.",
+      "files": [
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "kind": "build_request",
+  "title": "Admin product management interface",
+  "projectName": "Amber Shop",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "text": "Add an admin/seller product management page that allows authenticated admin users to create new products by filling out a form with fields: name, description, price, category, image URL, stock quantity, and rating. On submission, call the backend createProduct (or equivalent) endpoint and display a success confirmation.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Can I make or add some product on that site?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 'Manage Products' or 'Add Product' link/button is visible in the navbar or a dedicated admin area for users with the admin role.",
+        "The product creation form includes fields for name, description, price, category, image URL, stock quantity, and rating.",
+        "All required fields are validated before submission.",
+        "On successful submission, the new product appears in the product listing page.",
+        "A success toast/message is shown after a product is created.",
+        "An error message is shown if the backend call fails."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Add an edit and delete capability to the product management page so admin users can update existing product details or remove a product from the store. Wire these actions to the corresponding backend update/delete endpoints.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Can I make or add some product on that site?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each product in the admin product list has an 'Edit' button that opens a pre-filled form with the product's current details.",
+        "Saving an edited product calls the backend update endpoint and reflects changes in the product listing.",
+        "Each product has a 'Delete' button with a confirmation prompt before deletion.",
+        "Deleting a product removes it from the product listing page.",
+        "Success and error feedback is shown for both edit and delete actions."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Ensure the backend exposes full CRUD operations for products (create, read, update, delete) accessible only to users with the admin role, and that the frontend admin hooks in useQueries.ts call these endpoints correctly.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Can I make or add some product on that site?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend createProduct, updateProduct, and deleteProduct functions are guarded by admin role check and return appropriate errors for unauthorized callers.",
+        "Frontend React Query mutation hooks for createProduct, updateProduct, and deleteProduct are added to useQueries.ts.",
+        "Mutations invalidate the products query cache so the product listing refreshes automatically after any change."
+      ]
+    }
+  ],
+  "constraints": [
+    "Only admin-role users may create, edit, or delete products — regular users must not have access to these operations.",
+    "Do not modify files listed in frontend.immutablePaths.",
+    "All backend logic must remain in the single actor file backend/main.mo."
+  ],
+  "nonGoals": [
+    "Bulk product import or CSV upload.",
+    "Image file upload — image URL field only.",
+    "Public-facing user registration as admin — role assignment is out of scope.",
+    "Changes to cart, checkout, or order history flows."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
